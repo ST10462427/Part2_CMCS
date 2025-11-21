@@ -1,0 +1,23 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Part2 CMCS - @ViewData["Title"]</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mini.css/3.0.1/mini-default.min.css" />
+</head>
+<body>
+	<header>
+		<a asp-controller="Home" asp-action="Index">Home</a> |
+		<a asp-controller="Claims" asp-action="MyClaims">My Claims</a> |
+		<a asp-controller="Claims" asp-action="SubmitClaim">Submit Claim</a> |
+		<a asp-controller="Admin" asp-action="Index">Coordinator View</a>
+	</header>
+	<main class="container">
+		@RenderBody()
+	</main>
+	<footer>
+		<p style="text-align:center">Part2 CMCS - Prototype</p>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,23 @@
+﻿@model Part2_CMCS.Models.Claim
+
+<h2>Claim Details</h2>
+
+<p><strong>Lecturer:</strong> @Model.LecturerName</p>
+<p><strong>Hours Worked:</strong> @Model.HoursWorked</p>
+<p><strong>Hourly Rate:</strong> @Model.HourlyRate</p>
+<p><strong>Total:</strong> @(Model.HoursWorked* Model.HourlyRate)</p>
+<p><strong>Status:</strong> @Model.Status</p>
+<p><strong>Notes:</strong> @Model.Notes</p>
+
+@if (Model.Documents != null && Model.Documents.Any())
+{
+    <h4>Documents</h4>
+    <ul>
+        @foreach (var doc in Model.Documents)
+        {
+            <li>
+                <a href="@doc.FilePath" target="_blank">@doc.FileName</a>
+            </li>
+        }
+    </ul>
+}

@@ -1,0 +1,35 @@
+﻿@model Part2_CMCS.Models.Claim
+@{
+    ViewData["Title"] = "Submit Claim";
+}
+
+<h2>Submit a Claim</h2>
+
+<form asp-action="SubmitClaim" method="post" enctype="multipart/form-data">
+
+    <!-- 🔥 REQUIRED FIX: Hidden fields added so the claim can save -->
+    <input type="hidden" asp-for="LecturerUsername" />
+    <input type="hidden" asp-for="LecturerName" />
+
+    <div class="form-group">
+        <label>Hours Worked</label>
+        <input asp-for="HoursWorked" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Hourly Rate</label>
+        <input asp-for="HourlyRate" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Notes (optional)</label>
+        <textarea asp-for="Notes" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label>Upload Supporting Document</label>
+        <input type="file" name="upload" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Submit Claim</button>
+</form>

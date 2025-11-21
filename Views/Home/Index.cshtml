@@ -1,0 +1,27 @@
+﻿@using Microsoft.AspNetCore.Authentication
+@using Microsoft.AspNetCore.Authorization
+
+@{
+    ViewData["Title"] = "Home";
+}
+
+<h1>Welcome to the Claim Management System</h1>
+
+@if (User.Identity?.IsAuthenticated ?? false)
+{
+    <p>Hello @User.Identity.Name!</p>
+    <a asp-controller="Account" asp-action="Logout" class="btn btn-danger">Logout</a>
+    <hr />
+    <a asp-controller="Claims" asp-action="SubmitClaim" class="btn btn-primary">Submit Claim</a>
+    <a asp-controller="Claims" asp-action="MyClaims" class="btn btn-secondary">My Claims</a>
+
+    @if (User.IsInRole("PC") || User.IsInRole("Manager"))
+    {
+        <a asp-controller="Admin" asp-action="Index" class="btn btn-warning">PC/Manager Panel</a>
+    }
+}
+else
+{
+    <a asp-controller="Account" asp-action="Login" class="btn btn-success">Login</a>
+    <a asp-controller="Account" asp-action="Register" class="btn btn-warning">Register New Lecturer</a>
+}
